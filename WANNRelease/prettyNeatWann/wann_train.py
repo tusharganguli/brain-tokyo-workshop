@@ -55,7 +55,7 @@ def gatherData(data,alg,gen,hyp,savePop=False):
     data - (DataGatherer) - updated run data
   """
   data.gatherData(alg.pop, alg.species)
-  if (gen%hyp['save_mod']) is 0:
+  if (gen%hyp['save_mod']) == 0:
     data = checkBest(data)
     data.save(gen)
 
@@ -247,7 +247,8 @@ def main(argv):
 
   hyp = loadHyp(pFileName=hyp_default)
   updateHyp(hyp,hyp_adjust)
-
+  # Saves all hyperparameters in a JSON file in the current directory
+  #displayHyp(hyp)
   # Launch main thread and workers
   if (rank == 0):
     master()

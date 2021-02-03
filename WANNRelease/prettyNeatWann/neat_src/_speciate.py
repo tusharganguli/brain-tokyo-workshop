@@ -3,11 +3,12 @@ from utils import *
 
 class Species():
   """Species class, only contains fields: all methods belong to the NEAT class.
-  Note: All 'species' related functions are part of the Neat class, though defined in this file.
+  Note: All 'species' related functions are part of the Neat class, though
+  defined in this file.
   """
 
   def __init__(self,seed):
-    """Intialize species around a seed
+    """Initialize species around a seed
     Args:
       seed - (Ind) - individual which anchors seed in compatibility space
 

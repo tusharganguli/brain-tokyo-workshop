@@ -19,6 +19,7 @@ class GymTask():
       nReps     - (nReps) - number of trials to get average fitness
     """
     # Network properties
+    # tg: defined in config.py
     self.nInput   = game.input_size
     self.nOutput  = game.output_size      
     self.actRange = game.h_act
@@ -84,10 +85,12 @@ class GymTask():
       np.random.seed(seed)
       self.env.seed(seed)
 
+    # tg: first batch of randomly permuted targets are returned
     state = self.env.reset()
     self.env.t = 0
     annOut = act(wVec, aVec, self.nInput, self.nOutput, state)  
-    action = selectAct(annOut,self.actSelect)    
+    # tg: select action based on vector of actions. ann.py
+    action = selectAct(annOut,self.actSelect)
     state, reward, done, info = self.env.step(action)
     
     if self.maxEpisodeLength == 0:

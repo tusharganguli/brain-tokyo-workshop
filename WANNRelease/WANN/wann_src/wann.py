@@ -191,3 +191,8 @@ def updateHyp(hyp,pFileName=None):
     hyp['ann_initAct']  = task.activations[0]
     hyp['ann_actRange'] = task.actRange
 
+from .numpyencoder import NumpyEncoder
+def displayHyp(hyp):
+  with open("hyper_param_mnist256.json", "w") as write_file:
+    json.dump(hyp, write_file, indent=4, sort_keys=True, cls=NumpyEncoder)
+

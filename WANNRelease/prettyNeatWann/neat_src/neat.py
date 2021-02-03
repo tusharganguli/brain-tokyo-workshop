@@ -78,12 +78,16 @@ class Neat():
     node[0,:] = nodeId
     
     # Node types: [1:input, 2:hidden, 3:bias, 4:output]
+    # tg: Ref: ann.py/getNodeOrder()
+    # tg: Node types: [1:input, 2:output, 3:hidden, 4:bias]
+
     node[1,0]             = 4 # Bias
     node[1,1:p['ann_nInput']+1] = 1 # Input Nodes
     node[1,(p['ann_nInput']+1):\
            (p['ann_nInput']+p['ann_nOutput']+1)]  = 2 # Output Nodes
     
     # Node Activations
+    # tg: Initial activations for all nodes is same based on the hyp value
     node[2,:] = p['ann_initAct']
     # - Create Conns -
     nConn = (p['ann_nInput']+1) * p['ann_nOutput']

@@ -2,6 +2,9 @@ import os
 import numpy as np
 import copy
 from .ind import exportNet
+import logging
+from wann_train import rank
+
 
 class DataGatherer():
   ''' Data recorder for WANN algorithm'''
@@ -11,6 +14,7 @@ class DataGatherer():
       filename - (string) - path+prefix of file output destination
       hyp      - (dict)   - algorithm hyperparameters
     """
+    logging.info(str(rank) + "__init__")
     self.filename = filename # File name path + prefix
     self.p = hyp
     

@@ -16,8 +16,7 @@ from gym.wrappers import Monitor
 np.set_printoptions(precision=2) 
 np.set_printoptions(linewidth=160)
 
-final_mode = True
-render_mode = False
+final_mode = True; render_mode = False
 
 #final_mode = False; render_mode = True # VIEW: toggle with comment to view trials
 
@@ -25,7 +24,7 @@ RENDER_DELAY = False
 record_video = False
 MEAN_MODE = False
 
-record_rgb = False
+record_rgb = True
 
 if record_rgb:
   import imageio
